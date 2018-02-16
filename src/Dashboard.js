@@ -14,7 +14,7 @@ class Dashboard extends Component {
   }
 
   _fetchData = async () => {
-    let url = `http://magicseaweed.com/api/${process.env.REACT_APP_MAGIC_SEAWEED_API_KEY}/forecast/?fields${this.props.fields}=&units=us&spot_id=${this.props.spotId}`;
+    let url = `http://magicseaweed.com/api/${process.env.REACT_APP_MAGIC_SEAWEED_API_KEY}/forecast/?fields=localTimestamp,${this.props.fields}&units=us&spot_id=${this.props.spotId}`;
     let data = await fetch(url).then(res => res.json());
     this.setState({
       data: this._buildResponse(data)
@@ -22,28 +22,25 @@ class Dashboard extends Component {
   }
 
   _buildResponse(data) {
-    return data.map(({ localTimestamp, swell: { components: { combined: swell } }, wind }) => {
+    return data.map(data => {
       return {
-        date: localTimestamp,
-        swellHeight: swell.height,
-        swellPeriod: swell.period,
-        swellDirection: swell.compassDirection,
-        windSpeed: wind.speed,
-        windDirection: wind.compassDirection,
-        temperature: wind.chill
+        date: data.localTimestamp,
+        property: this.getter(data, this.props.fields)
       }
     });
   }
 
+  getter(obj, args) {
+    let current = obj;
+    args.split('.').forEach(arg => current = current[arg] );
+    return current;
+  }
+
   render() {
     return (
-      <div>
-        <Chart name={this.props.name} data={this.state.data}/>
-      </div>
+      <Chart name={this.props.name} data={this.state.data}/>
     )
   }
 }
 
 export default Dashboard;
-
-// let url = `http://magicseaweed.com/api/${apiKey}}/forecast/?fields=${fields}&units=us&spot_id=${spotId}`;

@@ -18,7 +18,7 @@ class Chart extends Component {
     return {
       x: 'x',
       columns: this._buildRows(),
-      type: 'spline',
+      type: 'area-spline',
       axis: {
         x: {
           type: 'timeseries',
@@ -29,12 +29,10 @@ class Chart extends Component {
 
   _buildRows() {
     let date = this.state.data.map(d => d.date);
-    let height = this.state.data.map(d => d.swellHeight);
-    let period = this.state.data.map(d => d.swellPeriod);
+    let property = this.state.data.map(d => d.property);
     return [
       ['x', ...date],
-      ['Swell Height', ...height],
-      ['Swell Period', ...period],
+      ['Swell Height', ...property],
     ]
   }
 

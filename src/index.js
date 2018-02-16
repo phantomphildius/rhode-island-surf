@@ -6,10 +6,12 @@ import registerServiceWorker from './registerServiceWorker';
 
 ReactDOM.render(
   <div>
-    <Dashboard name="Second Beach" spotId='846' fields='localTimestamp,swell.components.combined.*,wind.*,condition.temperature' />
-    <Dashboard name="First Beach" spotId='907' fields='localTimestamp,swell.components.combined.*,wind.*,condition.temperature' />
-    <Dashboard name ="Ruggles" spotId='374' fields='localTimestamp,swell.components.combined.*,wind.*,condition.temperature' />
+    <Dashboard name="Swell Height" spotId='846' fields='swell.components.combined.height' />
+    <Dashboard name="Temperature" spotId='846' fields='condition.temperature' />
+    <Dashboard name="Wind Speed" spotId='846' fields='wind.speed' />
   </div>
   , document.getElementById('root')
 );
 registerServiceWorker();
+    // <Dashboard name="First Beach" spotId='907' fields='localTimestamp,swell.components.combined.*,wind.*,condition.temperature' />
+    // <Dashboard name ="Ruggles" spotId='374' fields='localTimestamp,swell.components.combined.*,wind.*,condition.temperature' />
