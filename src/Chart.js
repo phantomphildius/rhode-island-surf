@@ -10,8 +10,8 @@ class Chart extends Component {
     };
   }
 
-  componentWillReceiveProps(nextProps) {
-    this.setState({ data: nextProps.data });
+  componentWillReceiveProps({ data }) {
+    this.setState({ data });
   }
 
   _chartData() {

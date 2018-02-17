@@ -7,16 +7,12 @@ class Container extends Component {
   constructor(props) {
     super(props)
     this.state = {
-      locationId: 846,
-      locationName: 'Second Beach'
+      locationId: 846
     }
   }
 
-  handleChange = event =>  {
-    this.setState({
-      locationId: event.target.value,
-      locationName: event.target.name
-    })
+  handleChange = ({ target: { value } }) =>  {
+    this.setState({ locationId: value });
   }
 
   render() {
@@ -30,7 +26,6 @@ class Container extends Component {
         <MenuItem value={907}>First Beach</MenuItem>
         <MenuItem value={374}>Ruggles</MenuItem>
       </Select>
-      // {this.state.locationName}
       <Dashboard name="Swell Height" spotId={this.state.locationId} fields='swell.components.combined.height' />
       <Dashboard name="Temperature" spotId={this.state.locationId} fields='condition.temperature' />
       <Dashboard name="Wind Speed" spotId={this.state.locationId} fields='wind.speed' />

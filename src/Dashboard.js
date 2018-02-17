@@ -5,12 +5,17 @@ class Dashboard extends Component {
   constructor(props) {
     super(props)
     this.state = {
-      data: []
+      data: [],
+      spotId: props.spotId
     };
   }
 
   componentDidMount() {
     this._fetchData()
+  }
+
+  componentWillReceiveProps() {
+    this._fetchData();
   }
 
   _fetchData = async () => {
