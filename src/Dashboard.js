@@ -1,5 +1,7 @@
 import React, { Component } from 'react';
+import Card from 'material-ui/Card';
 import Chart from './Chart';
+import Typography from 'material-ui/Typography';
 
 class Dashboard extends Component {
   constructor(props) {
@@ -43,7 +45,12 @@ class Dashboard extends Component {
 
   render() {
     return (
-      <Chart name={this.props.name} data={this.state.data}/>
+      <Card>
+        <Typography variant="headline" component="h3">
+          {this.props.name}
+        </Typography>
+        <Chart data={this.state.data}/>
+      </Card>
     )
   }
 }

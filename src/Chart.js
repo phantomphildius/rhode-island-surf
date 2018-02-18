@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import C3Chart from 'react-c3js';
+import { CardContent } from 'material-ui/Card';
 import 'c3/c3.css';
 
 class Chart extends Component {
@@ -21,7 +22,7 @@ class Chart extends Component {
       type: 'area-spline',
       axis: {
         x: {
-          type: 'timeseries',
+          type: 'timeseries'
         }
       }
     };
@@ -39,8 +40,9 @@ class Chart extends Component {
   render() {
     return (
       <section>
-        <h3>{this.props.name}</h3>
-        <C3Chart data={this._chartData()}/>
+        <CardContent>
+          <C3Chart data={this._chartData()}/>
+        </CardContent>
       </section>
     )
   }
