@@ -3,6 +3,7 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
+    "@mars/heroku-js-runtime-env": "^3.0.2",
     "material-ui": "^1.0.0-beta.33",
     "react": "^16.2.0",
     "react-c3js": "^0.1.20",
