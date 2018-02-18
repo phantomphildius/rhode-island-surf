@@ -25,6 +25,7 @@ class Container extends Component {
 
   render() {
     const { classes: { root } } = this.props;
+
     return (
       <div >
       <Select
@@ -54,7 +55,7 @@ class Container extends Component {
           <Dashboard name="Temperature" spotId={this.state.locationId} fields='condition.temperature' />
         </Grid>
         <Grid item xs={6}>
-          <Dashboard name="Wind Chill" spotId={this.state.locationId} fields='wind.chill' />
+        <Dashboard name="Wind Chill" spotId={this.state.locationId} fields='wind.chill' />
         </Grid>
       </Grid>
       </div>

@@ -33,7 +33,7 @@ class Chart extends Component {
     let property = this.state.data.map(d => d.property);
     return [
       ['x', ...date],
-      ['Swell Height', ...property],
+      [this.props.title, ...property],
     ]
   }
 

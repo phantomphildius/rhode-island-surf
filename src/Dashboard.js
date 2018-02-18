@@ -1,8 +1,16 @@
 import React, { Component } from 'react';
 import Card from 'material-ui/Card';
 import Chart from './Chart';
+import { withStyles } from 'material-ui/styles';
 import Typography from 'material-ui/Typography';
 import runtimeEnv from '@mars/heroku-js-runtime-env';
+
+const styles = theme => ({
+  title: {
+    paddingLeft: '0.75rem',
+    paddingTop: '0.75rem'
+  }
+});
 
 class Dashboard extends Component {
   constructor(props) {
@@ -46,15 +54,17 @@ class Dashboard extends Component {
   }
 
   render() {
+    const { classes: { title } } = this.props;
+
     return (
       <Card>
-        <Typography variant="headline" component="h3">
+        <Typography variant="headline" component="h3" className={title}>
           {this.props.name}
         </Typography>
-        <Chart data={this.state.data}/>
+        <Chart title={this.props.name} data={this.state.data}/>
       </Card>
     )
   }
 }
 
-export default Dashboard;
+export default withStyles(styles)(Dashboard);
