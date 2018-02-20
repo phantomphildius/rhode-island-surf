@@ -6,7 +6,13 @@ import Select from 'material-ui/Select';
 import { MenuItem } from 'material-ui/Menu';
 
 const styles = theme => ({
-  root: {
+  container: {
+    paddingTop: '1rem',
+    paddingLeft: '2rem',
+    paddingBottom: '1rem',
+    paddingRight: '2rem'
+  },
+  grid: {
     flexGrow: 1
   }
 });
@@ -24,10 +30,11 @@ class Container extends Component {
   }
 
   render() {
-    const { classes: { root } } = this.props;
+    const { classes: { container, grid } } = this.props;
 
     return (
-      <div >
+      <div className={container}>
+<a href="http://magicseaweed.com"><img src="https://im-1-uk.msw.ms/msw_powered_by.png"/></a>
       <Select
        value={this.state.locationId}
        onChange={this.handleChange}>
@@ -37,7 +44,7 @@ class Container extends Component {
         <MenuItem value={2096}>Baily's Beach</MenuItem>
       </Select>
       <Grid container
-      className={root}
+      className={grid}
       alignItems={'center'}
       direction={'row'}
       justify={'center'}

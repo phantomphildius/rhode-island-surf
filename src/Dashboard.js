@@ -31,7 +31,7 @@ class Dashboard extends Component {
 
   _fetchData = async () => {
     const env = runtimeEnv();
-    let url = `https://magicseaweed.com/api/${env.REACT_APP_MAGIC_SEAWEED_API_KEY}/forecast/?fields=localTimestamp,${this.props.fields}&units=us&spot_id=${this.props.spotId}`;
+    let url = `${env.REACT_APP_SURF_HOST}forecast?fields=localTimestamp,${this.props.fields}&spot_id=${this.props.spotId}`;
     let data = await fetch(url).then(res => res.json());
     this.setState({
       data: this._buildResponse(data)
